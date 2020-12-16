@@ -1,0 +1,17 @@
+{
+	"$schema": "http://json.schemastore.org/proxies",
+	"proxies": {
+		"redirect-proxy": {
+			"matchCondition": {
+				"methods": [
+					"GET"
+				],
+				"route": "/{*restOfPath}"
+			},
+			"requestOverrides": {
+				"backend.request.headers.X-ORIGINAL-HOST": "{request.headers.host}"
+			},
+			"backendUri": "https://localhost/api/Redirect?code=BaODR7ArzWRo0v6Y65FXAQkctUIqp8PRHjmMU6IpbQjPMPo3XHuLJw%3D%3D"
+		}
+	}
+}

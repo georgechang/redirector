@@ -16,7 +16,7 @@ namespace BellBank
 			[HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest req,
 			ILogger log)
 		{
-			var host = req.Host.Host;
+			var host = new HostString(req.Headers["X-ORIGINAL-HOST"]).Host;
 			log.LogInformation($"Host: {host}");
 
 			var connectionString = Environment.GetEnvironmentVariable("StorageConnectionString", EnvironmentVariableTarget.Process);
